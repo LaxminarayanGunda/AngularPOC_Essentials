@@ -1,0 +1,69 @@
+<br/>
+<div class="container">
+		<font color="blue">Example of 2-Way Data Binding</font>
+	<div><input type="text" [(ngModel)] = "name" /></div>
+	<div>{{name}} </div>
+</div> 
+ 
+<div class="container">
+		<font color="blue">Example of Customized Pipe Usage</font>
+	<div> 
+	definedName: {{definedName|undefinedToNAText}}f
+  </div>
+  <div> 
+   undefinedName: {{undefinedName|undefinedToNAText}}
+</div>
+</div> 
+ 
+
+ 
+<div class="container">
+	<font color="blue">Example of Key Value Pipe Angular library</font>
+  <br/>Default key order
+	<div *ngFor="let item of object | keyvalue:originalOrder">
+		{{item.key}} : {{item.value}}
+	</div>
+</div>
+<div class="container">
+  Value order Ascending
+	<div *ngFor="let item of object | keyvalue: valueAscOrder">
+		{{item.key}} : {{item.value}}
+	</div>
+</div>
+<div class="container">
+	Key order Descending
+	<div *ngFor="let item of object | keyvalue: keyDescOrder">
+		{{item.key}} : {{item.value}}
+	</div> 
+</div> 
+<div class="container">
+		<font color="blue">Addition Example Using Arrow Function</font>
+		6 & 9 Addition Of Numbers: {{getAddition(6,9)}}
+</div>
+ 
+<h1>My First Attribute Directive</h1>
+
+<h4>Pick a highlight color</h4>
+<div>
+  <input type="radio" name="colors" (click)="color='lightgreen'">Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan
+</div>
+<p [appHighlight]="color" defaultColor="violet">Highlight on This First line</p>
+
+<p [appHighlight]="color" defaultColor="violet">
+  Highlight on Second Line too!
+</p>
+
+
+Type anything other than numbers, the change is fired even if the textfield content does not change :
+<br/>
+<input type="text" [ngModel]="value" (ngModelChange)="onChange($event)" [appHighlight]/>
+<br/>
+
+Service Example
+<input type="button" value="Place My Orders" (click)="getMyOrders()"/>
+<br/> 
+<div>
+	myOrderStatus : {{myOrderStatus}}
+</div>  
